@@ -76,26 +76,21 @@ public class twicecomplex {
         public void printHTable() {
             StringBuilder printer = new StringBuilder();
             printer.append('[');
-            System.out.print('[');
             for (int i = 0; i < Table.length; i++) {
                 if (Table[i] == null) {
                     printer.append("-, ");
-                    System.out.print("-, ");
                 } else {
                    printer.append(Table[i] + ", ");
-                    System.out.print(Table[i] + ", ");
                 }
             }
 
                 printer.append(']');
             try {
                 save(String.valueOf(printer));
+                System.out.println(printer);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println(']');
-            //}
-          //  System.out.println(printer);
         }
 
         public int getSpaceUsed() {
