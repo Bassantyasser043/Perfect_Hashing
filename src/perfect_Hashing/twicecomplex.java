@@ -1,4 +1,11 @@
 package perfect_Hashing;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+
 public class twicecomplex {
         private Integer[] values, Table;
         private int n, Numberofcollisions;
@@ -13,6 +20,14 @@ public class twicecomplex {
             this.hFunction = new Universal(n * n);
         }
 
+    private void save(String content) throws IOException {
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("res.txt"));
+            writer.write(content);
+
+            writer.close();
+
+          }
         public boolean hash() {
             if (n == 1) {
                 Table = new Integer[1];
@@ -60,21 +75,27 @@ public class twicecomplex {
         }
         public void printHTable() {
             StringBuilder printer = new StringBuilder();
-           printer.append('[');
+            printer.append('[');
+            System.out.print('[');
             for (int i = 0; i < Table.length; i++) {
                 if (Table[i] == null) {
                     printer.append("-, ");
+                    System.out.print("-, ");
                 } else {
-                    printer.append(Table[i] + ", ");
+                   printer.append(Table[i] + ", ");
+                    System.out.print(Table[i] + ", ");
                 }
             }
-            if (!printer.toString().contains(",")) {
-                printer = new StringBuilder();
-            } else { //remove the substring of the last array in stringbuilder
-                printer.deleteCharAt(printer.length() - 1);
+
                 printer.append(']');
+            try {
+                save(String.valueOf(printer));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            System.out.println(printer);
+            System.out.println(']');
+            //}
+          //  System.out.println(printer);
         }
 
         public int getSpaceUsed() {

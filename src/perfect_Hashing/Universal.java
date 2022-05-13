@@ -1,6 +1,7 @@
 package perfect_Hashing;
 
 import java.util.Random;
+import java.util.Vector;
 
 public class Universal {
     //number of elements in the matrix.
@@ -34,7 +35,6 @@ public class Universal {
                 ap.append((Integer.bitCount(value & vec[i]))%2);
             }
             //return key of the value.
-            //4=100 integer=100
             return(Integer.parseInt(ap.toString(),2)%N);
         }
     }

@@ -23,11 +23,9 @@ public class Main {
         return vec;
     }
     public static void main(String[] args) {
-       // String name="";
         File file = new File("123.txt");
         Main readTextFile=new Main();
         Integer[] values = readTextFile.reading(file);
-        System.out.println(Arrays.toString(values));
         boolean chechValues = true;
         int n=values.length;
         twicecomplex nnSpaceSol = new twicecomplex(values);
