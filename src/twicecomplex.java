@@ -50,7 +50,7 @@ public class twicecomplex {
         return (n * n) + n;
     }
 
-    public void printHTable() {
+    public String printHTable() {
             Main main=new Main();
         StringBuilder printer = new StringBuilder();
         printer.append('[');
@@ -68,13 +68,9 @@ public class twicecomplex {
             printer.deleteCharAt(printer.length()-2);
             printer.append("]");
         }
-        try {
-            main.save(String.valueOf(printer));  //for saving the result in file
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println(printer);
 
+        System.out.println(printer);
+  return String.valueOf(printer);
     }
 
 
